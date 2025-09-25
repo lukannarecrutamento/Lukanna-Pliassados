@@ -25,6 +25,7 @@ body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--white);
+  /* fundo atual */
   background:
     radial-gradient(1000px 700px at 50% -10%, rgba(255,255,255,.06), transparent 60%),
     var(--bg);
@@ -37,13 +38,13 @@ body{
   align-items:flex-start;
   justify-content:center;
   padding:56px 16px 22px;
-  isolation:isolate;          /* garante z-index negativo do ::before */
+  isolation:isolate;
 }
 .hero::before{
   content:"";
   position:absolute;
   left:0; right:0; top:0;
-  height:460px;               /* limita a faixa do fundo ao topo */
+  height:460px;               /* faixa só no topo */
   background:
     url("logo-bg.png") center 120px/1200px auto no-repeat;
   opacity:.22;
@@ -56,7 +57,7 @@ body{
     background-size:900px auto;
     background-position:center 140px;
     opacity:.28;
-    height:420px;             /* um pouco menor no mobile */
+    height:420px;
   }
 }
 
@@ -74,15 +75,18 @@ body{
 .center{text-align:center}
 h1{
   margin:0 0 10px;
-  font-size:clamp(28px, 5.5vw, 56px);
+  /* AJUSTE: título maior */
+  font-size:clamp(32px, 6.2vw, 64px);
   font-weight:800;
   letter-spacing:.2px;
+  line-height:1.1;
 }
 .sub{
   margin:0 auto 22px;
   color:#ececec;
   font-weight:700;
-  font-size:clamp(16px,2.8vw,22px);
+  /* AJUSTE: descrição maior */
+  font-size:clamp(18px, 3.2vw, 24px);
 }
 .sub small{
   color:#d9d9d9;
@@ -92,7 +96,8 @@ h1{
 /* ====== ACTION CARDS (modelo barbearia) ====== */
 .actions{
   display:grid;
-  gap:14px;
+  /* AJUSTE: espaçamento um pouco menor entre cartões */
+  gap:12px;
   grid-template-columns: repeat(2, minmax(0,1fr));
   margin:14px 0 10px;
 }
@@ -103,10 +108,12 @@ h1{
   --bg2: rgba(255,255,255,.02);
   display:grid;
   grid-template-columns:auto 1fr auto;
-  gap:16px;
+  gap:14px;
   align-items:center;
-  padding:18px 20px;
-  border-radius:18px;
+  /* AJUSTE: botões menores (altura) */
+  padding:14px 16px;
+  /* AJUSTE: raio um pouco menor */
+  border-radius:16px;
   text-decoration:none;
   color:var(--white);
   background:linear-gradient(180deg,var(--bg1),var(--bg2));
@@ -121,27 +128,31 @@ h1{
   border-color:rgba(0,0,0,.08);
   box-shadow:0 16px 36px rgba(174,130,56,.45);
 }
-.action-emoji{ font-size:28px; }
+.action-emoji{ font-size:24px; }                /* AJUSTE: ícone menor */
 .action-text h4{ margin:0; font-size:20px; font-weight:800 }
 .action-text p{ margin:2px 0 0; color:#f3eedf; opacity:.9; font-size:14px }
 .action-card:not(.is-primary) .action-text p{ color:var(--muted) }
-.action-arrow svg{ width:20px; height:20px; fill:currentColor; opacity:.7 }
+.action-arrow svg{ width:18px; height:18px; fill:currentColor; opacity:.7 } /* AJUSTE */
 
-/* ====== SOCIAL GOLD (tamanho reduzido e só 3 ícones) ====== */
+/* ====== SOCIAL GOLD ====== */
 .social-wrap{ margin:20px 0 6px }
 .social-title{ margin:8px 0 12px; font-weight:800; font-size:clamp(18px,3.5vw,24px) }
 
 .social{
   display:grid;
+  /* AJUSTE: mais espaço no desktop, mantendo 3 colunas */
   gap:16px;
   justify-content:center;
-  grid-template-columns: repeat(3, 86px); /* 3 ícones menores */
+  grid-template-columns: repeat(3, 86px);
+}
+@media (min-width:980px){
+  .social{ gap:36px; }        /* AJUSTE: gap maior no desktop */
 }
 @media (max-width:780px){
   .social{ grid-template-columns: repeat(3, 74px); gap:14px; }
 }
 .icon-btn{
-  width:86px; height:86px;     /* antes 108px */
+  width:86px; height:86px;     /* tamanho atual */
   border-radius:50%;
   display:grid; place-items:center;
   background:
@@ -163,7 +174,7 @@ h1{
   pointer-events:none;
 }
 .icon-btn:hover{ transform:translateY(-2px); filter:saturate(108%) }
-.icon-btn svg{ width:32px; height:32px; fill:#1a1206; } /* antes 40px */
+.icon-btn svg{ width:32px; height:32px; fill:#1a1206; }
 
 /* ====== VIDEO ====== */
 .section{ margin:20px auto 10px }
@@ -178,7 +189,7 @@ h1{
 video{
   width:100%;
   height:auto;
-  aspect-ratio: 9 / 16; /* mantém forma do vertical sem explodir no desktop */
+  aspect-ratio: 9 / 16;
 }
 
 /* ====== GALERIA — GRID + LIGHTBOX ====== */
@@ -252,7 +263,7 @@ video{
             <div class="action-emoji">⭐</div>
             <div class="action-text">
               <h4>Avaliar no Google</h4>
-              <p>Deixe sua nota e um comentário.</p>
+              <p>Deixe sua nota e um comentário rápido.</p>
             </div>
             <div class="action-arrow" aria-hidden="true">
               <svg viewBox="0 0 256 512"><path d="M64 448c8.2 0 16.4-3.1 22.6-9.4l160-160c12.5-12.5 12.5-32.7 0-45.3l-160-160C80.4 61.1 72.2 58 64 58S47.6 61.1 41.4 67.4c-12.5 12.5-12.5 32.7 0 45.3L174.8 256 41.4 389.4c-12.5 12.5-12.5 32.7 0 45.3C47.6 444.9 55.8 448 64 448z"/></svg>
@@ -300,7 +311,6 @@ video{
             <a class="icon-btn" href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" aria-label="LinkedIn" rel="noopener">
               <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V149.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8A53.79 53.79 0 1 1 107.59 53.8c0 29.7-24.09 54.3-53.8 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.32 0-55.74 37.7-55.74 76.6V448h-92.78V149.9h89.08v40.7h1.3c12.4-23.5 42.6-48.3 87.68-48.3 93.8 0 111.1 61.8 111.1 142.3V448z"/></svg>
             </a>
-            <!-- (YouTube e TikTok removidos) -->
           </div>
         </div>
       </div>
@@ -309,7 +319,6 @@ video{
       <section class="section block">
         <h3>Vídeo — Apresentação Lukanna</h3>
         <div class="video-shell">
-          <!-- Para autoplay em iOS/Android: muted + playsinline + autoplay -->
           <video controls muted playsinline autoplay preload="metadata" poster="assets/gallery/slide-1.jpg">
             <source src="media/lukanna-apresentacao.mp4" type="video/mp4" />
             Seu navegador não suporta vídeo HTML5.
@@ -376,7 +385,7 @@ document.getElementById('lbClose').addEventListener('click', ()=>{
 });
 lb.addEventListener('click', (e)=>{ if(e.target.id==='lightbox') lb.classList.remove('open'); });
 
-/* autoplay garantido quando visível (alguns browsers pausam fora de foco) */
+/* autoplay garantido quando visível */
 const vid = document.querySelector('video');
 if(vid){ const playTry = () => vid.play().catch(()=>{}); document.addEventListener('visibilitychange', playTry, {passive:true}); }
 </script>
