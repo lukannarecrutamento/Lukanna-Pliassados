@@ -3,307 +3,326 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lukanna Plissados — Feedback & Tendências</title>
-<link rel="preload" href="logo-bg.png" as="image">
+<title>Lukanna — Plissados & Sublimados</title>
+<meta name="description" content="Plissado que veste a alta moda: precisão artesanal, caimento impecável e acabamento de luxo — do protótipo à produção." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg:#0c0c0c;
-    --card:#121212;
-    --muted:#b9b9b9;
-    --text:#ffffff;
-    --ring:#2b2b2b;
+:root{
+  --bg:#0c0c0c;
+  --card:#121212;
+  --muted:#bdbdbd;
+  --white:#fff;
+  --gold-1:#e0c07a;
+  --gold-2:#b48a45;
+  --ring:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:radial-gradient(1200px 800px at 50% -10%, rgba(255,255,255,.06), transparent 60%), var(--bg);
+  color:var(--white);
+}
 
-    /* ouro */
-    --gold-1:#D6B063;
-    --gold-2:#9C7B3A;
-    --gold-3:#E8CF93;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-    overflow-x:hidden;
-  }
+/* ====== HERO / LOGO DE FUNDO ====== */
+.hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:56px 20px 28px;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:url("logo-bg.png") center/900px auto no-repeat;
+  opacity:.22;               /* mais forte sem atrapalhar */
+  filter:contrast(115%) saturate(110%) blur(.2px);
+  pointer-events:none;
+}
+.container{
+  width:min(1080px, 92vw);
+  margin-inline:auto;
+}
+.card{
+  position:relative;
+  border-radius:28px;
+  padding:36px 24px 30px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow:0 10px 50px rgba(0,0,0,.55), inset 0 0 0 1px var(--ring);
+  backdrop-filter:blur(6px);
+}
 
-  /* --- Background com logo --- */
-  .bg-logo{
-    position: fixed; inset:0; z-index:-2;
-    background:
-      radial-gradient(ellipse at center, rgba(0,0,0,.35), rgba(0,0,0,.85)),
-      url("logo-bg.png") center/cover no-repeat;
-    filter: saturate(1.05) brightness(.55) blur(1px);
-    opacity:.55;     /* mais forte que antes, porém sem poluir */
-  }
-  .vignette{
-    position: fixed; inset:0; z-index:-1;
-    pointer-events:none;
-    background: radial-gradient(60% 60% at 50% 35%, rgba(0,0,0,.0), rgba(0,0,0,.55) 70%, rgba(0,0,0,.75) 100%);
-  }
+/* Center */
+.center{ text-align:center }
 
-  .container{max-width:1100px; margin:48px auto; padding:0 20px}
+/* ====== TÍTULOS ====== */
+h1{
+  margin:0 0 10px;
+  font-size:clamp(28px, 5.8vw, 54px);
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.sub{
+  margin:0 auto 22px;
+  color:#e9e9e9;
+  font-weight:600;
+  font-size:clamp(15px,2.8vw,18px);
+}
+.sub small{
+  color:#cfcfcf;
+  font-weight:400;
+}
 
-  /* --- Card hero --- */
-  .hero{
-    background: linear-gradient(180deg, rgba(18,18,18,.85), rgba(18,18,18,.75));
-    border:1px solid var(--ring);
-    border-radius:28px; padding:28px 24px 26px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,.35);
-  }
-  .h-title{
-    font-size: clamp(28px, 4.6vw, 56px);
-    font-weight: 800; line-height:1.05; letter-spacing:-.01em;
-    margin:0 0 10px 0;
-  }
-  .h-sub{
-    margin:0 0 22px 0; color:var(--muted);
-    font-size: clamp(14px, 1.9vw, 18px);
-  }
+/* ====== BOTÕES ====== */
+.btns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  justify-content:center;
+  margin:10px 0 14px;
+}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:56px; padding:0 28px;
+  border-radius:20px;
+  font-weight:800;
+  letter-spacing:.2px;
+  text-decoration:none;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease, opacity .15s ease;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 6px 24px rgba(0,0,0,.40), inset 0 0 0 1px rgba(255,255,255,.04);
+  color:var(--white);
+  position:relative; overflow:hidden;
+}
+.btn:hover{ transform:translateY(-2px) }
 
-  /* --- Botões --- */
-  .btns{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
-  .btn{
-    appearance:none; border-radius:28px; padding:14px 22px;
-    font-weight:700; font-size:16px; cursor:pointer;
-    border:1px solid var(--ring); color:#fff;
-    background: rgba(255,255,255,.03);
-    transition: .25s ease;
-    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn:hover{transform:translateY(-1px); border-color:#3b3b3b}
-  .btn:active{transform:translateY(0)}
-  .btn-primary{
-    background: linear-gradient(135deg, var(--gold-1), var(--gold-3) 60%, var(--gold-2));
-    color:#1a1a1a; border:none;
-    box-shadow: 0 10px 24px rgba(214,176,99,.20);
-  }
-  .btn-outline{
-    position:relative;
-    border:1px solid rgba(214,176,99,.35);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.10));
-  }
-  .btn-outline::before{
-    content:""; position:absolute; inset:0; border-radius:inherit;
-    background: linear-gradient(135deg, rgba(214,176,99,.55), rgba(156,123,58,.35));
-    opacity:.0; transition:.25s ease; z-index:-1;
-  }
-  .btn-outline:hover::before{opacity:.25}
+.btn--primary{
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-2));
+  color:#1b1204;
+  box-shadow:0 12px 30px rgba(180,138,69,.45);
+}
+.btn--primary:hover{
+  filter:saturate(105%);
+}
 
-  /* --- Redes --- */
-  .social{
-    margin-top:18px; display:flex; flex-direction:column; gap:14px; align-items:center;
-  }
-  .social h4{margin:0; font-size:18px}
-  .social-row{display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+/* dourado → transparente (vidro) */
+.btn--ghost{
+  background:
+    linear-gradient(180deg, rgba(224,192,122,.24), rgba(180,138,69,.06));
+  color:#faf7ef;
+}
+.btn--ghost:hover{
+  background:
+    linear-gradient(180deg, rgba(224,192,122,.42), rgba(180,138,69,.12));
+}
 
-  .s-icon{
-    width:56px; height:56px; border-radius:50%;
-    display:grid; place-items:center; overflow:hidden;
-    border:1px solid #2f2f2f; background:#121212;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
-    transition:.2s ease;
-  }
-  .s-icon:hover{transform:translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.35)}
+/* ====== REDES SOCIAIS (cores oficiais) ====== */
+.social-wrap{ margin-top:6px }
+.social-title{ margin:12px 0 10px; font-weight:800; font-size:clamp(16px,3.5vw,20px) }
 
-  /* Cores oficiais */
-  .ig{background: radial-gradient(45% 120% at 30% 110%, #FEDA75 0, #FA7E1E 30%, #D62976 55%, #962FBF 75%, #4F5BD5 100%)}
-  .fb svg{fill:#1877F2}
-  .li svg{fill:#0A66C2}
-  .yt{background:#111}
-  .yt svg{fill:#FF0000}
-  .tt{background:#111}
-  .tt svg{fill:#fff}
+.social{
+  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+}
+.icon-btn{
+  width:66px; height:66px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.05);
+  box-shadow:inset 0 0 0 1px var(--ring), 0 10px 24px rgba(0,0,0,.35);
+  transition:transform .15s ease, box-shadow .15s ease;
+  text-decoration:none;
+}
+.icon-btn:hover{ transform:translateY(-2px) }
 
-  .s-icon svg{width:28px; height:28px; filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
+/* – Instagram gradiente oficial */
+.icon-ig{ background:
+  radial-gradient(30% 30% at 30% 20%, #fdf497 0 60%, transparent 61%),
+  radial-gradient(45% 45% at 70% 80%, #fd5949 0 60%, transparent 61%),
+  radial-gradient(60% 60% at 20% 80%, #d6249f 0 60%, transparent 61%),
+  linear-gradient(45deg, #285AEB, #d6249f 45%, #fd5949 75%, #fdf497) }
+.icon-ig svg{ filter:drop-shadow(0 0 2px rgba(0,0,0,.25)) }
 
-  /* --- Section card simples --- */
-  .card{
-    margin-top:22px; background:rgba(18,18,18,.6);
-    border:1px solid var(--ring); border-radius:22px; padding:18px 18px 14px;
-    backdrop-filter: blur(6px);
-  }
-  .card h3{margin:0 0 8px 0}
-  .muted{color:var(--muted)}
+/* – Facebook */
+.icon-fb{ background:#1877F2 }
+/* – LinkedIn */
+.icon-in{ background:#0A66C2 }
+/* – YouTube */
+.icon-yt{ background:#FF0033 }
+/* – TikTok (preto com aro leve) */
+.icon-tt{ background:#111 }
 
-  /* --- Slideshow --- */
-  .gallery{margin-top:26px}
-  .slider{
-    position:relative; overflow:hidden; border-radius:18px;
-    border:1px solid var(--ring); background:#0a0a0a;
-  }
-  .slides{
-    display:flex; transition: transform .55s ease; touch-action: pan-y;
-  }
-  .slide{
-    min-width:100%; height:58vw; max-height:580px; /* responsivo */
-    background:#000; display:block;
-  }
-  .slide img{
-    width:100%; height:100%; object-fit:cover; display:block;
-  }
+/* ícones brancos */
+.icon-btn svg{ width:30px; height:30px; fill:#fff }
 
-  /* setas */
-  .nav{
-    position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center; pointer-events:none;
-  }
-  .arrow{
-    pointer-events:auto; margin:0 6px; width:42px; height:42px; border-radius:50%;
-    border:1px solid rgba(255,255,255,.25);
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), rgba(0,0,0,.35));
-    display:grid; place-items:center; cursor:pointer; transition:.2s;
-    backdrop-filter: blur(4px);
-  }
-  .arrow:hover{transform:scale(1.05)}
-  .arrow svg{width:22px; height:22px; fill:#fff}
+/* ====== BLOCO (NPS placeholder) ====== */
+.block{
+  margin:28px auto 18px;
+  padding:20px 18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border-radius:18px;
+  box-shadow:inset 0 0 0 1px var(--ring);
+}
 
-  /* dots */
-  .dots{
-    position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
-    display:flex; gap:8px;
-  }
-  .dot{
-    width:9px; height:9px; border-radius:50%;
-    background: rgba(255,255,255,.35); border:1px solid rgba(0,0,0,.35);
-  }
-  .dot.active{
-    background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
-    box-shadow:0 0 0 2px rgba(0,0,0,.35) inset;
-  }
+/* ====== GALERIA/SLIDES ====== */
+.gallery{ margin:20px auto 70px; }
+.gallery h3{ margin:10px 0 12px; font-size:clamp(18px,3.8vw,22px) }
 
-  @media (max-width:720px){
-    .btn{padding:12px 16px; font-size:15px}
-    .s-icon{width:52px; height:52px}
-    .slide{height:64vw; max-height:420px}
-  }
+.slider{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.55), inset 0 0 0 1px var(--ring);
+}
+.slide{
+  width:100%; aspect-ratio: 16/8.5;
+  object-fit:cover; display:none;
+}
+.slide.active{ display:block }
+
+.nav{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:space-between;
+  pointer-events:none;
+}
+.arrow{
+  pointer-events:auto;
+  width:42px; height:42px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(0,0,0,.5);
+  margin:0 10px;
+  border:1px solid rgba(255,255,255,.25);
+  transition:transform .15s ease, background .15s ease;
+}
+.arrow:hover{ transform:scale(1.06); background:rgba(0,0,0,.65) }
+.arrow svg{ width:22px; height:22px; fill:#fff }
+
+/* ====== RESPONSIVO ====== */
+@media (max-width:720px){
+  .btn{ height:54px; border-radius:18px; padding:0 22px }
+  .icon-btn{ width:62px; height:62px }
+  .hero::before{ background-size:700px auto; opacity:.24 }
+}
 </style>
 </head>
+
 <body>
-<div class="bg-logo"></div>
-<div class="vignette"></div>
-
-<main class="container">
-
+  <!-- HERO -->
   <section class="hero">
-    <h1 class="h-title">Feedback & Contato — Lukanna</h1>
-    <p class="h-sub">
-      <strong>Plissado que veste a alta moda:</strong> precisão artesanal, caimento impecável e acabamento de luxo — do protótipo à produção.
-    </p>
+    <div class="container">
+      <div class="card center">
+        <h1>Feedback & Tendências — Lukanna</h1>
 
-    <div class="btns" style="margin-bottom:10px">
-      <a class="btn btn-primary" href="#nps">Responder NPS</a>
-      <a class="btn btn-outline" href="#" id="btn-google">Avaliar no Google</a>
-      <a class="btn btn-outline" href="https://wa.me/5548990898089" target="_blank" rel="noopener">WhatsApp Comercial</a>
-      <a class="btn btn-outline" href="https://www.lukannaplissados.com.br/servi%C3%A7os" target="_blank" rel="noopener">Ver Serviços</a>
-    </div>
+        <p class="sub">
+          <strong>Plissado que veste a alta moda:</strong>
+          <small>precisão artesanal, caimento impecável e acabamento de luxo — do protótipo à produção.</small>
+        </p>
 
-    <div class="social" aria-label="Redes sociais">
-      <h4>Nos siga nas redes sociais</h4>
-      <div class="social-row">
-        <!-- Instagram (gradiente) -->
-        <a class="s-icon ig" href="https://www.instagram.com/lukannaplissados/" target="_blank" rel="noopener" aria-label="Instagram">
-          <!-- logotipo branco por cima do gradiente -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm11 2.75a1 1 0 1 1 0 2.001 1 1 0 0 1 0-2Zm-6 2.25a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
-        </a>
-        <!-- Facebook -->
-        <a class="s-icon fb" href="https://www.facebook.com/lukannaplissado?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.49 17.52 2 11.95 2S2 6.49 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.91h2.54V9.41c0-2.52 1.5-3.91 3.8-3.91 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.57v1.88h2.79l-.45 2.91h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94Z"/></svg>
-        </a>
-        <!-- LinkedIn -->
-        <a class="s-icon li" href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5.001ZM3.5 9h3v12h-3V9Zm6 0h2.9v1.64h.04c.4-.75 1.39-1.54 2.86-1.54 3.06 0 3.63 2.01 3.63 4.63V21h-3v-5.35c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83V21h-3V9Z"/></svg>
-        </a>
-        <!-- YouTube -->
-        <a class="s-icon yt" href="https://www.youtube.com/@lukannaplissadoesublimacao7622" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 7.2s-.23-1.64-.95-2.36c-.91-.95-1.93-.95-2.4-1C16.98 3.5 12 3.5 12 3.5h-.02s-4.98 0-8.14.34c-.47.05-1.48.05-2.4 1C-.23 5.56 0 7.2 0 7.2S-.02 9.1 0 11v1.8s.23 1.64.94 2.36c.92.95 2.13.92 2.67 1.03C5.23 16.43 12 16.5 12 16.5s4.98 0 8.14-.34c.47-.05 1.49-.05 2.4-1 .72-.72.95-2.36.95-2.36V11c.02-1.9 0-3.8 0-3.8ZM9.5 13.5v-6l6 3-6 3Z" /></svg>
-        </a>
-        <!-- TikTok -->
-        <a class="s-icon tt" href="https://www.tiktok.com/@lukannaplissados11" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.75 2a5.5 5.5 0 0 0 5.5 5.5V10a8.5 8.5 0 0 1-5.5-2v6.43a5.93 5.93 0 1 1-5.94-5.94c.31 0 .61.03.9.08v3.07a2.87 2.87 0 1 0 2.87 2.87V2h1.67Z"/></svg>
-        </a>
+        <div class="btns">
+          <!-- NPS (ativaremos depois) -->
+          <a href="#nps" class="btn btn--primary">Responder NPS</a>
+
+          <!-- Google Review: link direto que você enviou -->
+          <a class="btn btn--ghost" href="https://g.page/r/CWGiPPWDayclEAE/review" target="_blank" rel="noopener">
+            Avaliar no Google
+          </a>
+
+          <!-- WhatsApp comercial (corrigido) -->
+          <a class="btn btn--ghost" href="https://wa.me/5548996898089" target="_blank" rel="noopener">
+            WhatsApp Comercial
+          </a>
+
+          <!-- Serviços -->
+          <a class="btn btn--ghost" href="https://www.lukannaplissados.com.br/servi%C3%A7os" target="_blank" rel="noopener">
+            Ver Serviços
+          </a>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-wrap">
+          <div class="social-title">Nos siga nas redes sociais</div>
+          <div class="social">
+
+            <!-- Instagram (ícone oficial em SVG branco sobre gradiente) -->
+            <a class="icon-btn icon-ig" href="https://www.instagram.com/lukannaplissados/" target="_blank" aria-label="Instagram" rel="noopener">
+              <svg viewBox="0 0 448 512" aria-hidden="true">
+                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.9 224.1 370.9 339 319.6 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12.1 27-27 27-14.9 0-27-12.1-27-27s12.1-27 27-27c14.9 0 27 12.1 27 27zM398.8 80.4c-8.4-21.1-24.7-37.4-45.8-45.8C332 24 299.7 22.7 224 22.7s-108 .3-129 11.9c-21.1 8.4-37.4 24.7-45.8 45.8C37.7 101.4 36.4 133.7 36.4 209.4s1.3 108 11.9 129c8.4 21.1 24.7 37.4 45.8 45.8 21 11.6 53.3 12.9 129 12.9s108-.3 129-11.9c21.1-8.4 37.4-24.7 45.8-45.8 11.6-21 12.9-53.3 12.9-129s-1.3-108-11.9-129z"/>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a class="icon-btn icon-fb" href="https://www.facebook.com/lukannaplissado?locale=pt_BR" target="_blank" aria-label="Facebook" rel="noopener">
+              <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91V127.77c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S269.91 0 240.32 0C167.57 0 121.36 44.38 121.36 124.72V195.3H32v92.66h89.36V512h107.8V288z"/></svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a class="icon-btn icon-in" href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" aria-label="LinkedIn" rel="noopener">
+              <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V149.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8A53.79 53.79 0 1 1 107.59 53.8c0 29.7-24.09 54.3-53.8 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.32 0-55.74 37.7-55.74 76.6V448h-92.78V149.9h89.08v40.7h1.3c12.4-23.5 42.6-48.3 87.68-48.3 93.8 0 111.1 61.8 111.1 142.3V448z"/></svg>
+            </a>
+
+            <!-- YouTube -->
+            <a class="icon-btn icon-yt" href="https://www.youtube.com/@lukannaplissadoesublimacao7622" target="_blank" aria-label="YouTube" rel="noopener">
+              <svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.8-42.2-48.5-48.5C458.8 64 288 64 288 64s-170.8 0-213.2 11.6c-23.7 6.3-42.2 24.8-48.5 48.5C14.7 166.5 14.7 256 14.7 256s0 89.5 11.6 131.9c6.3 23.7 24.8 42.2 48.5 48.5C117.2 448 288 448 288 448s170.8 0 213.2-11.6c23.7-6.3 42.2-24.8 48.5-48.5C561.3 345.5 561.3 256 561.3 256s0-89.5-11.6-131.9zM232 338V174l142 82-142 82z"/></svg>
+            </a>
+
+            <!-- TikTok -->
+            <a class="icon-btn icon-tt" href="https://www.tiktok.com/@lukannaplissados11" target="_blank" aria-label="TikTok" rel="noopener">
+              <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M448 209.9a210 210 0 0 1-122.4-39.2v122.4A119.2 119.2 0 1 1 206.7 176a120 120 0 0 1 20.2 1.7v81.1a39.3 39.3 0 1 0 27.5 37.5V0h71.3a144.7 144.7 0 0 0 5.1 39.2 120.2 120.2 0 0 0 30.1 52.8A120.3 120.3 0 0 0 448 120.2z"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
+
+      <!-- Bloco NPS (placeholder) -->
+      <div id="nps" class="block">
+        <strong>NPS (estrutura)</strong>
+        <div style="color:var(--muted);margin-top:6px">
+          Aqui vai o formulário NPS em modal. Próxima etapa: integrar ao Baserow.
+        </div>
+      </div>
+
+      <!-- GALERIA / SLIDESHOW -->
+      <section class="gallery">
+        <h3>Galeria — Slideshow</h3>
+        <div class="slider" id="slider">
+          <img class="slide active" src="assets/gallery/slide-1.jpg" alt="Plissado 01" />
+          <img class="slide" src="assets/gallery/slide-2.jpg" alt="Plissado 02" />
+          <img class="slide" src="assets/gallery/slide-3.jpg" alt="Plissado 03" />
+          <img class="slide" src="assets/gallery/slide-4.jpg" alt="Plissado 04" />
+
+          <div class="nav">
+            <button class="arrow" id="prev" aria-label="Anterior">
+              <svg viewBox="0 0 256 512"><path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160C-3.125 272.4-3.125 255.6 9.375 243.1l160-160C175.6 77.12 183.8 74 192 74s16.38 3.125 22.62 9.375c12.5 12.5 12.5 32.75 0 45.25L81.25 256l133.4 133.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"/></svg>
+            </button>
+            <button class="arrow" id="next" aria-label="Próxima">
+              <svg viewBox="0 0 256 512"><path d="M64 448c8.188 0 16.38-3.125 22.62-9.375l160-160c12.5-12.5 12.5-32.75 0-45.25l-160-160C80.38 61.12 72.19 58 64 58S47.62 61.12 41.38 67.38c-12.5 12.5-12.5 32.75 0 45.25L174.8 256 41.38 389.4c-12.5 12.5-12.5 32.75 0 45.25C47.62 444.9 55.81 448 64 448z"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-
-  <section id="nps" class="card">
-    <h3>NPS (estrutura)</h3>
-    <p class="muted">Aqui vai o formulário NPS em modal. Próxima etapa: integrar ao Baserow.</p>
-  </section>
-
-  <section class="gallery">
-    <h3>Galeria — Slideshow</h3>
-    <div class="slider" id="slider">
-      <div class="slides" id="slides">
-        <a class="slide"><img src="assets/gallery/slide-1.jpg" alt="Plissado 01"></a>
-        <a class="slide"><img src="assets/gallery/slide-2.jpg" alt="Plissado 02"></a>
-        <a class="slide"><img src="assets/gallery/slide-3.jpg" alt="Plissado 03"></a>
-        <a class="slide"><img src="assets/gallery/slide-4.jpg" alt="Plissado 04"></a>
-      </div>
-      <div class="nav">
-        <button class="arrow" id="prev" aria-label="Anterior">
-          <svg viewBox="0 0 24 24"><path d="M15.5 4 7 12l8.5 8 1.5-1.5L10 12l7-6.5z"/></svg>
-        </button>
-        <button class="arrow" id="next" aria-label="Próxima">
-          <svg viewBox="0 0 24 24"><path d="M8.5 4 17 12l-8.5 8L7 18.5 14 12 7 5.5z"/></svg>
-        </button>
-      </div>
-      <div class="dots" id="dots" aria-hidden="true"></div>
-    </div>
-  </section>
-
-</main>
 
 <script>
-  /* ===== Slideshow com setas, dots, auto e swipe ===== */
-  const slidesEl = document.getElementById('slides');
-  const slider = document.getElementById('slider');
+/* ====== SLIDESHOW com setas ====== */
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
   const prev = document.getElementById('prev');
   const next = document.getElementById('next');
-  const dotsEl = document.getElementById('dots');
+  let i = 0;
 
-  const total = slidesEl.children.length;
-  let i = 0, auto, startX=null, curX=null;
-
-  function go(n){
-    i = (n + total) % total;
-    slidesEl.style.transform = `translateX(-${i*100}%)`;
-    Array.from(dotsEl.children).forEach((d,idx)=>d.classList.toggle('active', idx===i));
-    restart();
+  function show(idx){
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
   }
-  function buildDots(){
-    dotsEl.innerHTML = '';
-    for(let k=0;k<total;k++){
-      const d=document.createElement('div'); d.className='dot'+(k===0?' active':'');
-      d.addEventListener('click', ()=>go(k));
-      dotsEl.appendChild(d);
-    }
-  }
-  function restart(){
-    clearInterval(auto);
-    auto = setInterval(()=>go(i+1), 5000);
-  }
-  prev.addEventListener('click', ()=>go(i-1));
-  next.addEventListener('click', ()=>go(i+1));
-  buildDots(); restart();
+  prev.addEventListener('click', ()=>{ i = (i - 1 + slides.length) % slides.length; show(i); });
+  next.addEventListener('click', ()=>{ i = (i + 1) % slides.length; show(i); });
 
-  // Swipe (mobile)
-  slider.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; clearInterval(auto); }, {passive:true});
-  slider.addEventListener('touchmove', e=>{ curX = e.touches[0].clientX; }, {passive:true});
-  slider.addEventListener('touchend', ()=>{
-    if(startX!==null && curX!==null){
-      const dx = curX - startX;
-      if(Math.abs(dx) > 40){ dx>0 ? go(i-1) : go(i+1); } else restart();
-    } else restart();
-    startX=null; curX=null;
-  });
-
-  // Link do Google Reviews (deixe vazio se ainda não tiver)
-  document.getElementById('btn-google').addEventListener('click', (e)=>{
-    const url = ""; // cole aqui a URL oficial de reviews
-    if(!url){ alert("Cole a URL oficial de reviews do Google aqui no código quando tiver."); e.preventDefault(); }
-    else { e.currentTarget.href = url; }
-  });
+  // auto-play suave (pode ajustar ou remover)
+  setInterval(()=>{ next.click(); }, 6000);
+})();
 </script>
 </body>
 </html>
