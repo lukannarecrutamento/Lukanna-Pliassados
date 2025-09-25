@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lukanna Plissados — Feedback & Tendências</title>
+<style>
+:root{
+  --bg:#0b0b0b; --text:#f5f5f5; --muted:#bdbdbd; --gold:#c9a765; --card:#111; --radius:18px;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit}
+
+header{position:sticky; top:0; z-index:20; background:rgba(11,11,11,.6); backdrop-filter:blur(10px); border-bottom:1px solid #1f1f1f}
+.wrap{max-width:1180px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:12px; font-weight:700}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:var(--gold)}
+nav a{margin-left:16px; text-decoration:none; color:#cfcfcf}
+nav a:hover{color:#fff}
+
+.hero{
+  position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 20px;
+  background:url('assets/logo-bg.png') center/contain no-repeat, radial-gradient(1200px 700px at 50% 0%, #1a1a1a, #0b0b0b);
+}
+.hero .panel{background:rgba(8,8,8,.62); border:1px solid #262626; backdrop-filter:blur(6px); padding:26px 22px; border-radius:var(--radius); max-width:760px}
+h1{margin:0 0 8px; font-weight:800; letter-spacing:.3px}
+.sub{margin:0 auto 18px; color:var(--muted); line-height:1.6}
+
+.actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.btn{padding:14px 18px; border-radius:999px; border:1px solid #2a2a2a; background:linear-gradient(180deg,#171717,#101010); cursor:pointer; font-weight:700; color:#fff}
+.btn:hover{border-color:#3a3a3a}
+.btn.gold{background:linear-gradient(180deg,#e3cc97,#c3a35b); color:#0d0d0d; border:none}
+.btn.ghost{background:transparent}
+
+section{padding:30px 20px}
+.card{background:var(--card); border:1px solid #1f1f1f; border-radius:var(--radius); padding:18px}
+.grid-2{display:grid; gap:16px; grid-template-columns:1fr}
+@media(min-width:900px){.grid-2{grid-template-columns:1.1fr .9fr}}
+
+#clientes img, .abvtex img{width:100%; border-radius:12px; border:1px solid #1e1e1e}
+
+.gallery{display:grid; gap:10px; grid-template-columns:repeat(1,minmax(0,1fr))}
+@media(min-width:650px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery img{width:100%; height:260px; object-fit:cover; border-radius:12px; border:1px solid #222; cursor:pointer}
+
+.lightbox{position:fixed; inset:0; background:rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:50}
+.lightbox.show{display:flex}
+.lightbox img{max-width:92vw; max-height:88vh; border-radius:10px; border:1px solid #333}
+
+footer{padding:38px 20px 60px; border-top:1px solid #1e1e1e; color:#bdbdbd; text-align:center}
+.social{margin-top:18px; text-align:center}
+.social img{max-width:100%; border-radius:12px; border:1px solid #1e1e1e}
+.icon-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px}
+.icon-row a{display:inline-flex; padding:10px 14px; border:1px solid #2a2a2a; border-radius:999px; background:#121212; color:#eee; text-decoration:none}
+.icon-row a:hover{border-color:#3a3a3a}
+.badge{display:inline-block; padding:6px 10px; background:#151515; border:1px solid #232323; border-radius:999px; color:#cfcfcf}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="dot"></div> Lukanna Plissados</div>
+    <nav>
+      <a href="#nps">NPS</a>
+      <a href="#reviews">Google</a>
+      <a href="#whatsapp">WhatsApp</a>
+      <a href="#galeria">Galeria</a>
+      <a href="https://www.lukannaplissados.com.br/servi%C3%A7os" target="_blank" rel="noopener">Serviços</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="panel">
+    <h1>Feedback & Tendências — Lukanna</h1>
+    <p class="sub">Estrutura pronta: NPS, Avaliação Google, WhatsApp Comercial e Galeria. Plano de fundo com o logo Lukanna (look luxo).</p>
+    <div class="actions">
+      <a class="btn gold" href="#nps">Responder NPS</a>
+      <a class="btn" id="googleBtn" href="#" target="_blank" rel="noopener">Avaliar no Google</a>
+      <a class="btn ghost" id="whatsBtn" href="https://wa.me/5548990898089" target="_blank" rel="noopener">WhatsApp Comercial</a>
+      <a class="btn ghost" href="https://www.lukannaplissados.com.br/servi%C3%A7os" target="_blank" rel="noopener">Ver Serviços</a>
+    </div>
+  </div>
+</section>
+
+<section id="nps" class="wrap grid-2">
+  <div class="card">
+    <h3 style="margin:0 0 6px">NPS (estrutura)</h3>
+    <div class="badge">Próxima etapa: integrar ao Baserow</div>
+    <p class="sub">Aqui vai o formulário NPS em modal. Vamos ativar depois que criarmos a tabela.</p>
+  </div>
+  <div class="card" id="reviews">
+    <h3 style="margin:0 0 6px">Avaliação no Google</h3>
+    <p class="sub">Quando você passar o link de reviews, o botão abaixo vai direto para a avaliação.</p>
+    <a class="btn" id="googleBtn2" href="#" target="_blank" rel="noopener">Avaliar agora</a>
+  </div>
+</section>
+
+<section id="clientes" class="wrap">
+  <h3 style="margin:0 0 10px">Clientes Lukanna Plissados</h3>
+  <img src="assets/clientes-strip.png" alt="Clientes Lukanna" />
+</section>
+
+<section class="wrap abvtex">
+  <h3 style="margin:0 0 10px">Certificação</h3>
+  <div class="grid-2">
+    <div class="card">
+      <p class="sub">Empresa certificada <strong>ABVTEX — nível Ouro</strong>, reforçando nosso compromisso com responsabilidade socioambiental.</p>
+    </div>
+    <div class="card"><img src="assets/abvtex-ouro.png" alt="Selo ABVTEX Ouro" /></div>
+  </div>
+</section>
+
+<section id="galeria" class="wrap">
+  <h3 style="margin:0 0 12px">Galeria — Plissados</h3>
+  <div class="gallery">
+    <img src="assets/gallery/01.jpg" alt="Plissado 01" />
+    <img src="assets/gallery/02.jpg" alt="Plissado 02" />
+    <img src="assets/gallery/03.jpg" alt="Plissado 03" />
+    <img src="assets/gallery/04.jpg" alt="Plissado 04" />
+    <img src="assets/gallery/05.jpg" alt="Plissado 05" />
+    <img src="assets/gallery/06.jpg" alt="Plissado 06" />
+  </div>
+
+  <div class="social">
+    <img src="assets/social-banner.png" alt="Siga-nos nas redes sociais" />
+    <div class="icon-row">
+      <a href="https://www.instagram.com/lukannaplissados/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/lukannaplissado?locale=pt_BR" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.tiktok.com/@lukannaplissados11" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@lukannaplissadoesublimacao7622" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer id="whatsapp">
+  <div class="wrap">
+    <p>Matriz: Sombrio — SC • © 2025 Lukanna Plissados</p>
+  </div>
+</footer>
+
+<!-- Lightbox simples -->
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt="" /></div>
+
+<script>
+// Coloque aqui o link de reviews do Google quando tiver:
+const GOOGLE_REVIEW_URL = "#";
+document.getElementById("googleBtn").href = GOOGLE_REVIEW_URL;
+document.getElementById("googleBtn2").href = GOOGLE_REVIEW_URL;
+
+// Lightbox da galeria
+const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lightboxImg");
+document.querySelectorAll(".gallery img").forEach(img=>{
+  img.addEventListener("click", ()=>{ lbImg.src = img.src; lb.classList.add("show"); });
+});
+lb.addEventListener("click", ()=> lb.classList.remove("show"));
+</script>
+</body>
+</html>
