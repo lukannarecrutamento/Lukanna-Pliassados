@@ -37,18 +37,27 @@ body{
   align-items:flex-start;
   justify-content:center;
   padding:56px 16px 22px;
+  isolation:isolate;          /* garante z-index negativo do ::before */
 }
 .hero::before{
   content:"";
-  position:absolute; inset:0;
+  position:absolute;
+  left:0; right:0; top:0;
+  height:460px;               /* limita a faixa do fundo ao topo */
   background:
     url("logo-bg.png") center 120px/1200px auto no-repeat;
   opacity:.22;
   filter:contrast(115%) saturate(110%);
   pointer-events:none;
+  z-index:-1;                 /* fica atrás do conteúdo e do vídeo */
 }
 @media (max-width:900px){
-  .hero::before{ background-size:900px auto; background-position:center 140px; opacity:.28; }
+  .hero::before{
+    background-size:900px auto;
+    background-position:center 140px;
+    opacity:.28;
+    height:420px;             /* um pouco menor no mobile */
+  }
 }
 
 .container{ width:min(1100px, 92vw); margin-inline:auto; }
@@ -118,21 +127,22 @@ h1{
 .action-card:not(.is-primary) .action-text p{ color:var(--muted) }
 .action-arrow svg{ width:20px; height:20px; fill:currentColor; opacity:.7 }
 
-/* ====== SOCIAL GOLD ====== */
+/* ====== SOCIAL GOLD (tamanho reduzido e só 3 ícones) ====== */
 .social-wrap{ margin:20px 0 6px }
 .social-title{ margin:8px 0 12px; font-weight:800; font-size:clamp(18px,3.5vw,24px) }
 
 .social{
   display:grid;
-  gap:18px;
+  gap:16px;
   justify-content:center;
-  grid-template-columns: repeat(5, 108px);
+  grid-template-columns: repeat(3, 86px); /* 3 ícones menores */
 }
 @media (max-width:780px){
-  .social{ grid-template-columns: repeat(3, 94px); gap:16px; }
+  .social{ grid-template-columns: repeat(3, 74px); gap:14px; }
 }
 .icon-btn{
-  width:108px; height:108px; border-radius:50%;
+  width:86px; height:86px;     /* antes 108px */
+  border-radius:50%;
   display:grid; place-items:center;
   background:
     radial-gradient(120% 120% at 30% 20%, #f3dfb3 0 25%, transparent 26%),
@@ -153,7 +163,7 @@ h1{
   pointer-events:none;
 }
 .icon-btn:hover{ transform:translateY(-2px); filter:saturate(108%) }
-.icon-btn svg{ width:40px; height:40px; fill:#1a1206; }
+.icon-btn svg{ width:32px; height:32px; fill:#1a1206; } /* antes 40px */
 
 /* ====== VIDEO ====== */
 .section{ margin:20px auto 10px }
@@ -242,7 +252,7 @@ video{
             <div class="action-emoji">⭐</div>
             <div class="action-text">
               <h4>Avaliar no Google</h4>
-              <p>Deixe sua nota e um comentário rápido.</p>
+              <p>Deixe sua nota e um comentário.</p>
             </div>
             <div class="action-arrow" aria-hidden="true">
               <svg viewBox="0 0 256 512"><path d="M64 448c8.2 0 16.4-3.1 22.6-9.4l160-160c12.5-12.5 12.5-32.7 0-45.3l-160-160C80.4 61.1 72.2 58 64 58S47.6 61.1 41.4 67.4c-12.5 12.5-12.5 32.7 0 45.3L174.8 256 41.4 389.4c-12.5 12.5-12.5 32.7 0 45.3C47.6 444.9 55.8 448 64 448z"/></svg>
@@ -290,14 +300,7 @@ video{
             <a class="icon-btn" href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" aria-label="LinkedIn" rel="noopener">
               <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M100.28 448H7.4V149.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8A53.79 53.79 0 1 1 107.59 53.8c0 29.7-24.09 54.3-53.8 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.32 0-55.74 37.7-55.74 76.6V448h-92.78V149.9h89.08v40.7h1.3c12.4-23.5 42.6-48.3 87.68-48.3 93.8 0 111.1 61.8 111.1 142.3V448z"/></svg>
             </a>
-            <!-- YouTube -->
-            <a class="icon-btn" href="https://www.youtube.com/@lukannaplissadoesublimacao7622" target="_blank" aria-label="YouTube" rel="noopener">
-              <svg viewBox="0 0 576 512" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.8-42.2-48.5-48.5C458.8 64 288 64 288 64s-170.8 0-213.2 11.6c-23.7 6.3-42.2 24.8-48.5 48.5C14.7 166.5 14.7 256 14.7 256s0 89.5 11.6 131.9c6.3 23.7 24.8 42.2 48.5 48.5C117.2 448 288 448 288 448s170.8 0 213.2-11.6c23.7-6.3 42.2-24.8 48.5-48.5C561.3 345.5 561.3 256 561.3 256s0-89.5-11.6-131.9zM232 338V174l142 82-142 82z"/></svg>
-            </a>
-            <!-- TikTok -->
-            <a class="icon-btn" href="https://www.tiktok.com/@lukannaplissados11" target="_blank" aria-label="TikTok" rel="noopener">
-              <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M448 209.9a210 210 0 0 1-122.4-39.2v122.4A119.2 119.2 0 1 1 206.7 176a120 120 0 0 1 20.2 1.7v81.1a39.3 39.3 0 1 0 27.5 37.5V0h71.3a144.7 144.7 0 0 0 5.1 39.2 120.2 120.2 0 0 0 30.1 52.8A120.3 120.3 0 0 0 448 120.2z"/></svg>
-            </a>
+            <!-- (YouTube e TikTok removidos) -->
           </div>
         </div>
       </div>
