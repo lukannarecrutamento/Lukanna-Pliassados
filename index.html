@@ -5,57 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lukanna Plissados — Feedback & Tendências</title>
 <style>
-:root{ --bg:#0b0b0b; --text:#f5f5f5; --muted:#c7c7c7; --gold:#c9a765; --panel:#0d0d0dcc; --radius:18px; }
-*{box-sizing:border-box}
-body{margin:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit; text-decoration:none}
+:root{ --bg:#0b0b0b; --text:#f5f5f5; --muted:#c7c7c7; --panel:#0d0d0dcc; --gold:#c9a765; --radius:18px }
+*{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 
 /* HERO (sem cabeçalho) */
 .hero{
-  position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 18px;
-  background: center/cover no-repeat url('assets/gallery/hero-1.jpg');
+  position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:44px 18px;
+  background:center/cover no-repeat url('assets/gallery/hero-1.jpg');
 }
-.hero::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.75));}
-.panel{position:relative; z-index:1; background:var(--panel); border:1px solid #222; border-radius:18px; padding:24px; max-width:880px}
-h1{margin:0 0 8px; font-size:clamp(28px,5vw,44px); font-weight:800; letter-spacing:.2px}
-.sub{margin:0 0 18px; color:var(--muted); line-height:1.6}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.78))}
+.panel{position:relative;z-index:1;background:var(--panel);border:1px solid #222;border-radius:var(--radius);padding:24px;max-width:880px}
+h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:.2px}
+.sub{margin:0 0 18px;color:var(--muted);line-height:1.6}
 
-.actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-.btn{padding:12px 18px; border-radius:999px; border:1px solid #2a2a2a; background:#111; color:#fff; font-weight:700}
-.btn.gold{background:linear-gradient(180deg,#e3cc97,#c3a35b); color:#0d0d0d; border:none}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:999px;border:1px solid #2a2a2a;background:#111;color:#fff;font-weight:700}
+.btn.gold{background:linear-gradient(180deg,#e3cc97,#c3a35b);color:#0d0d0d;border:none}
 .btn.ghost{background:transparent}
+.wrap{max-width:1000px;margin:0 auto;padding:26px 16px}
+.card{background:#101010;border:1px solid #1c1c1c;border-radius:var(--radius);padding:18px}
 
-/* Ícones sociais */
-.social-legend{margin:14px 0 6px; font-weight:600}
-.icon-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-.icon-chip{display:inline-flex; align-items:center; justify-content:center; width:44px;height:44px;border-radius:50%;border:1px solid #2a2a2a;background:#121212}
-.icon{width:22px;height:22px; fill:#eaeaea}
-@media(max-width:520px){ .icon-chip{width:42px;height:42px} .icon{width:22px;height:22px} }
-
-.wrap{max-width:1000px; margin:0 auto; padding:26px 16px}
-.card{background:#101010; border:1px solid #1c1c1c; border-radius:var(--radius); padding:18px}
+/* Social */
+.social-legend{margin:14px 0 6px;font-weight:600}
+.icon-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.icon-chip{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid #2a2a2a;background:#121212}
+.icon{width:22px;height:22px;fill:#eaeaea}
 
 /* SLIDESHOW */
-.slider{position:relative; overflow:hidden; border-radius:16px; border:1px solid #1f1f1f; background:#0a0a0a}
-.slides{display:flex; transition:transform .5s ease}
-.slide{min-width:100%; aspect-ratio: 3/4; display:grid; place-items:center; background:#000}
-.slide img{width:100%; height:100%; object-fit:cover}
-.nav{position:absolute; top:50%; width:100%; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 8px}
-.nav button{background:rgba(0,0,0,.45); border:1px solid #333; color:#fff; border-radius:50%; width:40px; height:40px; cursor:pointer}
-.dots{display:flex; justify-content:center; gap:8px; padding:12px}
+.slider{position:relative;overflow:hidden;border-radius:16px;border:1px solid #1f1f1f;background:#0a0a0a}
+.slides{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;aspect-ratio:3/4;display:grid;place-items:center;background:#000}
+.slide img{width:100%;height:100%;object-fit:cover}
+.nav{position:absolute;top:50%;width:100%;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 8px}
+.nav button{background:rgba(0,0,0,.45);border:1px solid #333;color:#fff;border-radius:50%;width:40px;height:40px;cursor:pointer}
+.dots{display:flex;justify-content:center;gap:8px;padding:12px}
 .dots button{width:10px;height:10px;border-radius:50%;border:1px solid #999;background:#333;cursor:pointer}
-.dots button.active{background:#fff; border-color:#fff}
+.dots button.active{background:#fff;border-color:#fff}
 
-/* RODAPÉ */
-footer{padding:36px 16px 60px; color:#bdbdbd; text-align:center}
+footer{padding:36px 16px 60px;color:#bdbdbd;text-align:center}
 </style>
 </head>
 <body>
 
+<!-- SEM CABEÇALHO -->
 <section class="hero">
   <div class="panel">
     <h1>Feedback & Tendências — Lukanna</h1>
-    <p class="sub">Landing simples com botões e galeria em slideshow para destacar plissados.</p>
+    <p class="sub">Botões essenciais e galeria com slideshow para destacar plissados.</p>
     <div class="actions">
       <a class="btn gold" href="#nps">Responder NPS</a>
       <a class="btn" id="googleBtn" href="#" target="_blank" rel="noopener">Avaliar no Google</a>
@@ -66,19 +62,19 @@ footer{padding:36px 16px 60px; color:#bdbdbd; text-align:center}
     <div class="social-legend">Nos siga nas redes sociais</div>
     <div class="icon-row" aria-label="Links para redes sociais">
       <a class="icon-chip" href="https://www.instagram.com/lukannaplissados/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.3 2.4.6.6.3 1 .6 1.5 1.1.5.5.8.9 1.1 1.5.3.5.5 1.2.6 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.9-.6 2.4-.3.6-.6 1-1.1 1.5-.5.5-.9.8-1.5 1.1-.5.3-1.2.5-2.4.6-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.3-2.4-.6-.6-.3-1-.6-1.5-1.1-.5-.5-.8-.9-1.1-1.5-.3-.5-.5-1.2-.6-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.9.6-2.4.3-.6.6-1 1.1-1.5.5-.5.9-.8 1.5-1.1.5-.3 1.2-.5 2.4-.6C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.3-2 .5-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.4-.4 1-.5 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .3 1.6.5 2 .2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.2 1 .4 2 .5 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.3 2-.5.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.4.4-1 .5-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.3-1.6-.5-2-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.2-1-.4-2-.5-1.2-.1-1.6-.1-4.7-.1zm0 2.8a5.9 5.9 0 110 11.8 5.9 5.9 0 010-11.8zm0 1.8a4.1 4.1 0 100 8.2 4.1 4.1 0 000-8.2zm5.9-2.1a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.3 2.4.6.6.3 1 .6 1.5 1.1.5.5.8.9 1.1 1.5.3.5.5 1.2.6 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.9-.6 2.4-.3.6-.6 1-1.1 1.5-.5.5-.9.8-1.5 1.1-.5.3-1.2.5-2.4.6-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.3-2.4-.6-.6-.3-1-.6-1.5-1.1-.5-.5-.8-.9-1.1-1.5-.3-.5-.5-1.2-.6-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.9.6-2.4.3-.6.6-1 1.1-1.5.5-.5.9-.8 1.5-1.1.5-.3 1.2-.5 2.4-.6C8.4 2.2 8.8 2.2 12 2.2zm0 4.6a5.9 5.9 0 110 11.8 5.9 5.9 0 010-11.8zM18 6.3a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8z"/></svg>
       </a>
       <a class="icon-chip" href="https://www.facebook.com/lukannaplissado?locale=pt_BR" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.06 5.66 21.2 10.44 22v-7.03H7.9v-2.9h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.62.77-1.62 1.56v1.87h2.76l-.44 2.9h-2.32V22C18.34 21.2 22 17.06 22 12.07z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.06 5.66 21.2 10.44 22v-7.03H7.9v-2.9h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.62.77-1.62 1.56v1.87h2.76l-.44 2.9h-2.32V22C18.34 21.2 22 17.06 22 12.07z"/></svg>
       </a>
       <a class="icon-chip" href="https://www.linkedin.com/company/lukanna-plissados-e-sublima%C3%A7%C3%A3o/posts/?feedView=all" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zm7.5 0h3.8v2.1h.1c.5-.9 1.8-2.1 3.7-2.1 4 0 4.8 2.6 4.8 6V24h-4v-7.2c0-1.7 0-3.8-2.3-3.8-2.3 0-2.7 1.8-2.7 3.7V24h-4V8.5z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zm7.5 0h3.8v2.1h.1c.5-.9 1.8-2.1 3.7-2.1 4 0 4.8 2.6 4.8 6V24h-4v-7.2c0-1.7 0-3.8-2.3-3.8-2.3 0-2.7 1.8-2.7 3.7V24h-4V8.5z"/></svg>
       </a>
       <a class="icon-chip" href="https://www.youtube.com/@lukannaplissadoesublimacao7622" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8 3 3 0 002.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8 3 3 0 002.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
       </a>
       <a class="icon-chip" href="https://www.tiktok.com/@lukannaplissados11" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 2.1c.8 1.7 2.3 3 4.1 3.5v3.1a8.4 8.4 0 01-4.1-1.1v6.8a6.1 6.1 0 11-5.2-6v3.2a2.8 2.8 0 102 2.7V2.1h3.2z"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16.7 2.1c.8 1.7 2.3 3 4.1 3.5v3.1a8.4 8.4 0 01-4.1-1.1v6.8a6.1 6.1 0 11-5.2-6v3.2a2.8 2.8 0 102 2.7V2.1h3.2z"/></svg>
       </a>
     </div>
   </div>
@@ -95,10 +91,11 @@ footer{padding:36px 16px 60px; color:#bdbdbd; text-align:center}
   <h3 style="margin:0 0 12px">Galeria — Slideshow</h3>
   <div class="slider" id="slider">
     <div class="slides">
-      <div class="slide"><img src="assets/gallery/assets:gallery:slide-1.jpg" alt="Plissado 1"></div>
-      <div class="slide"><img src="assets/gallery/assets:gallery:slide-2.jpg" alt="Plissado 2"></div>
-      <div class="slide"><img src="assets/gallery/assets:gallery:slide-3.jpg" alt="Plissado 3"></div>
-      <div class="slide"><img src="assets/gallery/assets:gallery:slide-4.jpg" alt="Plissado 4"></div>
+      <!-- troque os src se quiser manter os nomes antigos -->
+      <div class="slide"><img src="assets/gallery/slide-1.jpg" alt="Plissado 1"></div>
+      <div class="slide"><img src="assets/gallery/slide-2.jpg" alt="Plissado 2"></div>
+      <div class="slide"><img src="assets/gallery/slide-3.jpg" alt="Plissado 3"></div>
+      <div class="slide"><img src="assets/gallery/slide-4.jpg" alt="Plissado 4"></div>
     </div>
     <div class="nav">
       <button id="prev" aria-label="Anterior">‹</button>
@@ -111,8 +108,7 @@ footer{padding:36px 16px 60px; color:#bdbdbd; text-align:center}
 <footer>© 2025 Lukanna Plissados — Matriz: Sombrio • SC</footer>
 
 <script>
-/* link de reviews do Google (troque quando tiver) */
-document.getElementById("googleBtn").href = "#";
+document.getElementById("googleBtn").href = "#"; // coloque aqui o link de reviews do Google
 
 /* Slideshow */
 const slider = document.getElementById('slider');
@@ -142,8 +138,7 @@ for(let i=0;i<total;i++){
 document.getElementById('next').onclick = next;
 document.getElementById('prev').onclick = prev;
 reset();
-
-/* swipe (mobile) */
+/* swipe mobile */
 slides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; deltaX=0; clearInterval(timer); }, {passive:true});
 slides.addEventListener('touchmove', e=>{ deltaX = e.touches[0].clientX - startX; }, {passive:true});
 slides.addEventListener('touchend', ()=>{ if(Math.abs(deltaX)>40){ deltaX<0 ? next() : prev(); } reset(); });
